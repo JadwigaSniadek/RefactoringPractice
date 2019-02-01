@@ -22,7 +22,7 @@
         font-size: small;
     }
 
-    .code .py {
+    .code .keyword {
         color: #CC7832;
     }
 
@@ -53,80 +53,178 @@
             <h3>Co robi ten kod?</h3>
             <pre class="code">
                 <p style="font-size: small">
-                <span class="py">import</span> pandas <span class="py">as</span> pd
-                <span class="py">import</span> numpy <span class="py">as</span> np
-                <span class="py">import</span> os
-                <span class="py">import</span> shutil
-                <span class="py">import</span> random
+                <span class="keyword">import</span> pandas <span class="keyword">as</span> pd
+                <span class="keyword">import</span> numkeyword <span class="keyword">as</span> np
+                <span class="keyword">import</span> os
+                <span class="keyword">import</span> shutil
+                <span class="keyword">import</span> random
 
-                <span class="py">def</span> <span class="method">copy_images</span>(n, cond1,cond2, file1, path1,path2):
+                <span class="keyword">def</span> <span class="method">cokeyword_images</span>(n, cond1,cond2, file1, path1,path2):
                 df = pd.read_csv(file1)
                 df = df.set_index('image_id')
 
-                df_copy = df.copy()
-                    condition1 = df_copy['Male'] == (1 <span class="py">if</span> cond1 == <span
-                        class="bool">True</span> <span class="py">else</span> -1)
-                    condition2 = df_copy['Attractive'] == (1 <span class="py">if</span> cond2 == <span
-                        class="bool">True</span> <span class="py">else</span> -1)
-                df2 = df_copy[condition1 & condition2]
+                df_cokeyword = df.cokeyword()
+                    condition1 = df_cokeyword['Male'] == (1 <span class="keyword">if</span> cond1 == <span
+                        class="bool">True</span> <span class="keyword">else</span> -1)
+                    condition2 = df_cokeyword['Attractive'] == (1 <span class="keyword">if</span> cond2 == <span
+                        class="bool">True</span> <span class="keyword">else</span> -1)
+                df2 = df_cokeyword[condition1 & condition2]
                 names = df2.index.tolist()
                 items = np.random.choice(names, n, replace=False)
 
-                <span class="py">if</span>(not os.path.exists(path2)):
+                <span class="keyword">if</span>(not os.path.exists(path2)):
                     os.makedirs(path2, exist_ok=<span class="bool">True</span>)
 
-                <span class="py">for</span> item <span class="py">in</span> items:
+                <span class="keyword">for</span> item <span class="keyword">in</span> items:
                     src = '{}/{}'.format(path1, item)
                     dst = '{}/{}'.format(path2, item)
-                    shutil.copyfile(src, dst)
+                    shutil.cokeywordfile(src, dst)
 
-                <i>copy_images(250, True, True, './data.csv', './photos','./dest')</i>
+                <i>cokeyword_images(250, True, True, './data.csv', './photos','./dest')</i>
                 </p>
             </pre>
         </section>
         <section data-background-transition="slide">
             <pre class="code">
                 <p style="font-size: small">
-                <span class="py">import</span> pandas <span class="py">as</span> pd
-                <span class="py">import</span> numpy <span class="py">as</span> np
-                <span class="py">import</span> os
-                <span class="py">import</span> shutil
-                <span class="py">import</span> random
+                <span class="keyword">import</span> pandas <span class="keyword">as</span> pd
+                <span class="keyword">import</span> numkeyword <span class="keyword">as</span> np
+                <span class="keyword">import</span> os
+                <span class="keyword">import</span> shutil
+                <span class="keyword">import</span> random
 
-                <span class="py">def</span> <span class="method">create_destination_folder_if_not_exist</span>(destination_path):
+                <span class="keyword">def</span> <span class="method">create_destination_folder_if_not_exist</span>(destination_path):
                 if(not os.path.exists(destination_pgiath)):
                     os.makedirs(destination_path, exist_ok=<span class="bool">True</span>)
 
 
-                <span class="py">def</span> <span class="method">copy_images_to_folder</span>(image_list, images_path, destination_path):
+                <span class="keyword">def</span> <span class="method">cokeyword_images_to_folder</span>(image_list, images_path, destination_path):
                 create_destination_folder_if_not_exist(destination_path)
-                <span class="py">for</span> image <span class="py">in</span> image_list:
+                <span class="keyword">for</span> image <span class="keyword">in</span> image_list:
                         image_src_path = '{}/{}'.format(images_path, image)
                         image_dest_path = '{}/{}'.format(destination_path, image)
-                        shutil.copyfile(image_src_path, image_dest_path)
+                        shutil.cokeywordfile(image_src_path, image_dest_path)
 
-                <span class="py">def</span> <span class="method">create_n_random_image_names_list</span>(n, images_df):
+                <span class="keyword">def</span> <span class="method">create_n_random_image_names_list</span>(n, images_df):
                 images_names = images_df.index.tolist()
                 return np.random.choice(images_names, n, replace=False)
 
-                <span class="py">def</span> <span class="method">copy_n_images_for_gender_and_attractiveness_values</span>(number_of_images, isMale,
+                <span class="keyword">def</span> <span class="method">cokeyword_n_images_for_gender_and_attractiveness_values</span>(number_of_images, isMale,
                         isAttractive,data_file_path, images_path, destination_path):
                     celebs_df = pd.read_csv(data_file_path)
                     celebs_df = celebs_df.set_index('image_id')
 
-                    celebs_df_copy = celebs_df.copy()
-                    gender_condition = celebs_df_copy['Male'] == (1 <span class="py">if</span> isMale == <span class="bool">True</span> <span class="py">else</span> -1)
-                    attractiveness_condition = celebs_df_copy['Attractive'] == (1<span class="py"> if</span> isAttractive == <span class="bool">True</span> <span class="py">else</span> -1)
-                    images_df = celebs_df_copy[gender_condition & attractiveness_condition]
+                    celebs_df_cokeyword = celebs_df.cokeyword()
+                    gender_condition = celebs_df_cokeyword['Male'] == (1 <span class="keyword">if</span> isMale == <span class="bool">True</span> <span class="keyword">else</span> -1)
+                    attractiveness_condition = celebs_df_cokeyword['Attractive'] == (1<span class="keyword"> if</span> isAttractive == <span class="bool">True</span> <span class="keyword">else</span> -1)
+                    images_df = celebs_df_cokeyword[gender_condition & attractiveness_condition]
 
                     image_names = create_n_random_image_names_list(number_of_images, images_df)
-                    copy_images_to_folder(image_names,images_path,destination_path)
+                    cokeyword_images_to_folder(image_names,images_path,destination_path)
 
-                 <i>copy_n_images_for_gender_and_attractiveness_values(250, True, True, './data.csv', './photos','./dest')</i>
+                 <i>cokeyword_n_images_for_gender_and_attractiveness_values(250, True, True, './data.csv', './photos','./dest')</i>
                 </p>
             </pre>
         </section>
+        <section data-background-transition="slide">
+            <h3>SOLID</h3>
 
+        </section>
+
+        <section data-background-transition="slide">
+            <h3>S - <i>Single Responsibility Principle</i></h3>
+            <pre class="code">
+                <p style="font-size: small">
+                <span class="keyword">public class</span> DateFormatter{} <i class="fa fa-check" style="color: green"></i>
+                <span class="keyword">public class</span> DateParser{} <i class="fa fa-check" style="color: green"></i>
+                <span class="keyword">public class</span> DateFormatterAndParserAndOtherMagicStuff{} <i class="fa fa-ban" style="color: red"></i>
+                </p>
+            </pre>
+        </section>
+        <section data-background-transition="slide">
+            <h3>O - <i>Open/Closed</i></h3>
+            <pre class="code">
+                <p style="font-size: small">
+                 <span class="keyword">public class</span> Rectangle
+                 {
+                    <span class="keyword">private double</span> width;
+                    <span class="keyword">private double</span> height;
+
+                    //getters, setters
+                 }
+
+                 <span class="keyword">public class</span> AreaCalculator {
+
+                    <span class="keyword">public double</span> <span class="method">area</span>(Rectangle rectangle){
+                        <span class="keyword">return</span> rectangle.getWidth() * rectangle.getHeight();
+                    }
+                 }
+                </p>
+            </pre>
+        </section>
+        <section data-background-transition="slide">
+            <pre class="code">
+                <p style="font-size: small">
+                 <span class="keyword">public class</span> Circle
+                 {
+                    <span class="keyword">private double</span> radius;
+
+                    //getters, setters
+                 }
+
+                 <span class="keyword">public class</span> AreaCalculator {
+
+                    <span class="keyword">public double</span> <span class="method">area</span>(Object shape){
+                        <span class="keyword">if </span>(shape <span class="keyword">instanceof</span> Rectangle){
+                            <span class="keyword">return</span> shape.getWidth() * shape.getHeight();
+                        }<span class="keyword"> else </span>{
+                            <span class="keyword">return</span> shape.getRadius() * shape.getRadius() * 3.14;
+                        }
+                    }
+                 }
+                </p>
+            </pre>
+        </section>
+        <section data-background-transition="slide">
+            <h3>Rozwiązanie</h3>
+            <pre class="code">
+                <p style="font-size: small">
+                 <span class="keyword">public abstract class</span> Shape {
+                    <span class="keyword">public abstract double</span> <span class="method">area</span>()
+                 }
+
+                 <span class="keyword">public class</span> Rectangle <span class="keyword">extends</span> Shape  {
+
+                    <span class="keyword">private double</span> width;
+                    <span class="keyword">private double</span> height;
+
+
+                    <span class="keyword">public abstract double</span> <span class="method">area</span>(){
+                        <span class="keyword">return</span> width * height;
+                     }
+                    //getters, setters
+                 }
+
+                 <span class="keyword">public class</span> Circle <span class="keyword">extends</span> Shape  {
+
+                    <span class="keyword">private double</span> radius;
+
+
+                    <span class="keyword">public abstract double</span> <span class="method">area</span>(){
+                        <span class="keyword">return</span> radius * radius * 3.14;
+                     }
+                    //getters, setters
+                 }
+
+                 <span class="keyword">public class</span> AreaCalculator {
+
+                    <span class="keyword">public double</span> <span class="method">area</span>(Shape shape){
+                        <span class="keyword">return</span> shape.area();
+                    }
+                 }
+                </p>
+            </pre>
+        </section>
     </div>
 </div>
 <script src="resources/presentation/js/head.min.js"></script>
