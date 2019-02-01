@@ -225,6 +225,95 @@
                 </p>
             </pre>
         </section>
+        <section data-background-transition="slide">
+            <h3>L - <i>Liskov Substitution Principle</i></h3>
+            <pre class="code">
+                <p style="font-size: small">
+                    //TODO
+                </p>
+            </pre>
+        </section>
+        <section data-background-transition="slide">
+            <h3>I - <i>Interface Segregation Principle</i></h3>
+            <pre class="code">
+                <p style="font-size: small">
+                 <span class="keyword">public interface</span> ObjectFormatter <i class="fa fa-ban" style="color: red"></i> {
+
+                    <span class="keyword">public byte</span>[] <span class="method">toPDF</span>(<span class="keyword">Object</span> someObject);
+
+                    <span class="keyword">public String</span> <span class="method">toXML</span>(<span class="keyword">Object</span> someObject);
+
+                    <span class="keyword">public String</span> <span class="method">toJSON</span>(<span class="keyword">Object</span> someObject);
+                 }
+                </p>
+            </pre>
+        </section>
+        <section data-background-transition="slide">
+            <pre class="code">
+                <p style="font-size: small">
+                 <span class="keyword">public interface</span> PDFFormatter <i class="fa fa-check" style="color: green"></i> {
+
+                    <span class="keyword">public byte</span>[] <span class="method">toPDF</span>(<span class="keyword">Object</span> someObject);
+
+                 }
+
+                 <span class="keyword">public interface</span> XMLFormatter <i class="fa fa-check" style="color: green"></i> {
+
+                    <span class="keyword">public String</span> <span class="method">toXML</span>(<span class="keyword">Object</span> someObject);
+
+                 }
+
+                 <span class="keyword">public interface</span> JsonFormatter <i class="fa fa-check" style="color: green"></i> {
+
+                    <span class="keyword">public String</span> <span class="method">toJSON</span>(<span class="keyword">Object</span> someObject);
+                 }
+                </p>
+            </pre>
+        </section>
+        <section data-background-transition="slide">
+            <h3>D - <i>Dependency Inversion Principle</i></h3>
+            <img src="resources/presentation/images/dip-bad.png" />
+            <pre class="code">
+                <p style="font-size: small">
+                 <span class="keyword">public class</span> Button <i class="fa fa-ban" style="color: red"></i> {
+
+                    <span class="keyword">private</span> Lamp lamp;
+
+                    <span class="keyword">public void</span> <span class="method">poll</span>(){
+                        <span class="keyword">if</span> (/*warunek/*){
+                            lamp.turnOn();
+                        }
+                 }
+                </p>
+            </pre>
+        </section>
+
+        <section data-background-transition="slide">
+            <img src="resources/presentation/images/dip-good.png" />
+        </section>
+        <section data-background-transition="slide">
+            <pre class="code">
+                <p style="font-size: small">
+                  <span class="keyword">public interface</span> ButtonServer <i class="fa fa-check" style="color: green"></i> {
+
+                    <span class="keyword">public void</span> poll();
+
+                 }
+
+                 <span class="keyword">public class</span> Button {
+
+                    <span class="keyword">private</span> ButtonServer buttonServer;
+
+                    <span class="keyword">public void</span> poll();
+
+                    <span class="keyword">public void</span> <span class="method">poll</span>(){
+                        <span class="keyword">if</span> (/*warunek/*){
+                            buttonServer.turnOn();
+                        }
+                 }
+                </p>
+            </pre>
+        </section>
     </div>
 </div>
 <script src="resources/presentation/js/head.min.js"></script>
