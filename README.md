@@ -1,17 +1,17 @@
 # RefactoringPractice
 
 ## Czysty kod
- - [ ] SOLID
+ - [X] SOLID
  - [ ] Stałe
- - [ ] Formatowanie
+ - [X] Formatowanie
  - [ ] Zakomentowany/niewykorzystywany kod
- - [ ] Logowanie/komentarze
+ - [X] Logowanie/komentarze
  - [ ] Pakiety
- - [ ] Nazewnictwo
+ - [X] Nazewnictwo
  - [ ] Tworzenie funkcji
- - [ ] Brak powtórzeń
+ - [X] Brak powtórzeń
  - [ ] Operacje na stringach
- - [ ] Jeden język projektu
+ - [X] Jeden język projektu
  - [ ] Enumy
 
  ## Debug

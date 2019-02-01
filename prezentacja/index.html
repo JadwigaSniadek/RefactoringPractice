@@ -109,14 +109,17 @@
                     images_names = images_df.index.tolist()
                     return np.random.choice(images_names, n, replace=False)
 
-                <span class="keyword">def</span> <span class="method">copy_n_images_for_gender_and_attractiveness_values</span>(number_of_images, isMale,
+                <span class="keyword">def</span> <span
+                        class="method">copy_n_images_for_gender_and_attractiveness_values</span>(number_of_images, isMale,
                         isAttractive,data_file_path, images_path, destination_path):
                     celebs_df = pd.read_csv(data_file_path)
                     celebs_df = celebs_df.set_index('image_id')
 
                     celebs_df_copy = celebs_df.copy()
-                    gender_condition = celebs_df_copy['Male'] == (1 <span class="keyword">if</span> isMale == <span class="bool">True</span> <span class="keyword">else</span> -1)
-                    attractiveness_condition = celebs_df_copy['Attractive'] == (1<span class="keyword"> if</span> isAttractive == <span class="bool">True</span> <span class="keyword">else</span> -1)
+                    gender_condition = celebs_df_copy['Male'] == (1 <span class="keyword">if</span> isMale == <span
+                        class="bool">True</span> <span class="keyword">else</span> -1)
+                    attractiveness_condition = celebs_df_copy['Attractive'] == (1<span class="keyword"> if</span> isAttractive == <span
+                        class="bool">True</span> <span class="keyword">else</span> -1)
                     images_df = celebs_df_copy[gender_condition & attractiveness_condition]
 
                     image_names = create_n_random_image_names_list(number_of_images, images_df)
@@ -134,9 +137,11 @@
             <h3>S - <i>Single Responsibility Principle</i></h3>
             <pre class="code">
                 <p style="font-size: small">
-                <span class="keyword">public class</span> DateFormatter{} <i class="fa fa-check" style="color: green"></i>
+                <span class="keyword">public class</span> DateFormatter{} <i class="fa fa-check"
+                                                                             style="color: green"></i>
                 <span class="keyword">public class</span> DateParser{} <i class="fa fa-check" style="color: green"></i>
-                <span class="keyword">public class</span> DateFormatterAndParserAndOtherMagicStuff{} <i class="fa fa-ban" style="color: red"></i>
+                <span class="keyword">public class</span> DateFormatterAndParserAndOtherMagicStuff{} <i
+                        class="fa fa-ban" style="color: red"></i>
                 </p>
             </pre>
         </section>
@@ -236,7 +241,8 @@
             <h3>I - <i>Interface Segregation Principle</i></h3>
             <pre class="code">
                 <p style="font-size: small">
-                 <span class="keyword">public interface</span> ObjectFormatter <i class="fa fa-ban" style="color: red"></i> {
+                 <span class="keyword">public interface</span> ObjectFormatter <i class="fa fa-ban"
+                                                                                  style="color: red"></i> {
 
                     <span class="keyword">public byte</span>[] <span class="method">toPDF</span>(<span class="keyword">Object</span> someObject);
 
@@ -250,19 +256,22 @@
         <section data-background-transition="slide">
             <pre class="code">
                 <p style="font-size: small">
-                 <span class="keyword">public interface</span> PDFFormatter <i class="fa fa-check" style="color: green"></i> {
+                 <span class="keyword">public interface</span> PDFFormatter <i class="fa fa-check"
+                                                                               style="color: green"></i> {
 
                     <span class="keyword">public byte</span>[] <span class="method">toPDF</span>(<span class="keyword">Object</span> someObject);
 
                  }
 
-                 <span class="keyword">public interface</span> XMLFormatter <i class="fa fa-check" style="color: green"></i> {
+                 <span class="keyword">public interface</span> XMLFormatter <i class="fa fa-check"
+                                                                               style="color: green"></i> {
 
                     <span class="keyword">public String</span> <span class="method">toXML</span>(<span class="keyword">Object</span> someObject);
 
                  }
 
-                 <span class="keyword">public interface</span> JsonFormatter <i class="fa fa-check" style="color: green"></i> {
+                 <span class="keyword">public interface</span> JsonFormatter <i class="fa fa-check"
+                                                                                style="color: green"></i> {
 
                     <span class="keyword">public String</span> <span class="method">toJSON</span>(<span class="keyword">Object</span> someObject);
                  }
@@ -271,7 +280,7 @@
         </section>
         <section data-background-transition="slide">
             <h3>D - <i>Dependency Inversion Principle</i></h3>
-            <img src="resources/presentation/images/dip-bad.png" />
+            <img src="resources/presentation/images/dip-bad.png"/>
             <pre class="code">
                 <p style="font-size: small">
                  <span class="keyword">public class</span> Button <i class="fa fa-ban" style="color: red"></i> {
@@ -288,12 +297,13 @@
         </section>
 
         <section data-background-transition="slide">
-            <img src="resources/presentation/images/dip-good.png" />
+            <img src="resources/presentation/images/dip-good.png"/>
         </section>
         <section data-background-transition="slide">
             <pre class="code">
                 <p style="font-size: small">
-                  <span class="keyword">public interface</span> ButtonServer <i class="fa fa-check" style="color: green"></i> {
+                  <span class="keyword">public interface</span> ButtonServer <i class="fa fa-check"
+                                                                                style="color: green"></i> {
 
                     <span class="keyword">public void</span> poll();
 
@@ -344,8 +354,10 @@
                     celebs_df = celebs_df.set_index('image_id')
 
                     df_copy = celebs_df.copy() #celebrity dataframe copy
-                    cond = celebs_df_copy['Male'] == (1 <span class="keyword">if</span> isMale == <span class="bool">True</span> <span class="keyword">else</span> -1) #gender condition
-                    cond2 = celebs_df_copy['Attractive'] == (1<span class="keyword"> if</span> isAttractive == <span class="bool">True</span> <span class="keyword">else</span> -1) #attractiveness condition
+                    cond = celebs_df_copy['Male'] == (1 <span class="keyword">if</span> isMale == <span class="bool">True</span> <span
+                        class="keyword">else</span> -1) #gender condition
+                    cond2 = celebs_df_copy['Attractive'] == (1<span class="keyword"> if</span> isAttractive == <span
+                        class="bool">True</span> <span class="keyword">else</span> -1) #attractiveness condition
                     df2 = celebs_df_copy[gender_condition & attractiveness_condition] #dataframe for images fullfiling conditions
 
                     list = create_list(number_of_images, images_df) #image names
@@ -361,14 +373,14 @@
         <section data-background-transition="slide">
             <h3>FORMATOWANIE PIONOWE</h3>
             <ol>
-            <li>Gęstość pionowa</li>
-            <li>Odległość pionowa</li>
+                <li>Gęstość pionowa</li>
+                <li>Odległość pionowa</li>
                 <ul>
                     <li>Deklaracje zmiennych</li>
                     <li>Zmienne instancyjne</li>
                     <li>Funkcje zależne</li>
                 </ul>
-            <li>Uporządkowanie pionowe</li>
+                <li>Uporządkowanie pionowe</li>
                 <ul>
                     <li>Metody wywoływane pod metodami wywoływującymi</li>
                     <li>Metody publiczne na górze, metody prywatne na doles</li>
@@ -382,7 +394,8 @@
                 <li>Rozmieszczenie poziome</li>
                 <pre class="code">
                 <p style="font-size: small">
-                <span class="keyword">class</span> MyNotProperlyFormattedClass { <i class="fa fa-ban" style="color: red"></i>
+                <span class="keyword">class</span> MyNotProperlyFormattedClass { <i class="fa fa-ban"
+                                                                                    style="color: red"></i>
                     <span class="keyword">public</span>    Socket            socket;
                     <span class="keyword">private</span>   MyClass           myClass;
                     <span class="keyword">protected</span> VeryLongClassName something;
@@ -396,7 +409,9 @@
         <section data-background-transition="slide">
             <pre class="code">
                 <p style="font-size: small">
-                <span class="keyword">class</span> Lamp {<span class="keyword">private boolean</span> isOn;<span class="keyword">public void</span> <span class="method">turnOn</span>() {isOn = true;} <span class="keyword">public void</span> <span class="method">turnOff()</span> {isOn = false;}}</p>
+                <span class="keyword">class</span> Lamp {<span class="keyword">private boolean</span> isOn;<span
+                        class="keyword">public void</span> <span class="method">turnOn</span>() {isOn = true;} <span
+                        class="keyword">public void</span> <span class="method">turnOff()</span> {isOn = false;}}</p>
             </pre>
 
             <pre class="code">
@@ -411,6 +426,64 @@
 
                     <span class="keyword">public void</span> <span class="method">turnOff()</span> {
                        isOn = false;
+                    }
+                }</p>
+            </pre>
+        </section>
+        <section data-background-transition="slide">
+            <h3>REUŻYWALNOść</h3>
+        </section>
+        <section data-background-transition="slide">
+            <p style="font-size: x-small">
+                Napisz kod kopiujący 1000 losowo wybranych obrazków do następującej struktury katalogów:
+            <ul style="font-size: x-small">
+                <li> ./data/attractive/male - 250 obrazków zawierających mężczyzn ocenionych jako atrakcyjni</li>
+                <li> ./data/attractive/female - 250 obrazków zawierających kobiety ocenione jako atrakcyjne</li>
+                <li> ./data/notattractive/male - 250 obrazków zawierających mężczyzn ocenionych jako nieatrakcyjni</li>
+                <li> ./data/notattractive/female - 250 obrazków zawierających kobiety ocenione jako nieatrakcyjne</li>
+            </ul>
+            </p>
+            <pre class="code">
+                <p style="font-size: small">
+
+                <span class="keyword">def</span> <span
+                        class="method">copy_attractive_men_images</span>(data_file_path, images_path, destination_path):
+                    celebs_df = pd.read_csv(data_file_path)
+                    celebs_df = celebs_df.set_index('image_id')
+
+                    celebs_df_copy = celebs_df.copy()
+                    man_condition = celebs_df_copy['Male'] == 1
+                    attractive_condition = celebs_df_copy['Attractive'] == 1
+                    images_df = celebs_df_copy[man_condition & attractive_condition]
+
+                    image_names = create_n_random_image_names_list(250, images_df)
+                    copy_images_to_folder(image_names,images_path,destination_path)
+
+                 <i>copy_attractive_men_images('./data.csv', './photos','./dest')</i>
+                 <i>copy_noattractive_men_images('./data.csv', './photos','./dest')</i>
+                 <i>copy_attractive_women_images('./data.csv', './photos','./dest')</i>
+                 <i>copy_noattractive_women_images('./data.csv', './photos','./dest')</i>
+                </p>
+            </pre>
+        </section>
+        <section data-background-transition="slide">
+            <h3>JĘZYK PROJEKTU</h3>
+        </section>
+        <section data-background-transition="slide">
+            <pre class="code">
+                <p style="font-size: small">
+                <span class="keyword">class</span> Przycisk { <i class="fa fa-ban"
+                                                                        style="color: red"></i>
+                    <span class="keyword">public String</span> id;
+                    <span class="keyword">public String</span> napis;
+                }
+
+                <span class="keyword">class</span> MojaPolskaKlasa { <i class="fa fa-ban"
+                                                                                    style="color: red"></i>
+                    <span class="keyword">public</span> Przycisk przycisk;
+
+                    <span class="keyword">public</span> <span class="method">findPrzyciskByIdAndNazwa</span>(){
+                        <i class="fa fa-ban" style="color: red"></i><i class="fa fa-ban" style="color: red"></i><i class="fa fa-ban" style="color: red"></i>
                     }
                 }</p>
             </pre>
