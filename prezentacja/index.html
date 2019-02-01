@@ -16,33 +16,130 @@
     .reveal .slide-background {
         background: linear-gradient(90deg, #28511c 35%, #154a51 65%);
     }
+
+    .code {
+        background-color: black;
+        font-size: small;
+    }
+
+    .code .py {
+        color: #CC7832;
+    }
+
+    .code .method {
+        color: #FFC66D;
+    }
+
+    .code .bool {
+        color: lightgreen;
+    }
 </style>
 
 <body>
-    <div class="reveal">
-        <div class="slides">
-            <section data-background-transition="slide">
-                <section>
-                    <h3>Warsztaty dla testerów</h3>
-                </section>
-
+<div class="reveal">
+    <div class="slides">
+        <section data-background-transition="slide">
+            <section>
+                <h3>Warsztaty dla testerów</h3>
             </section>
-            <section data-background-transition="slide">
-                <h3>Wstęp</h3>
 
-            </section>
-        </div>
+        </section>
+        <section data-background-transition="slide">
+            <h3>Zacznij od dlaczego</h3>
+
+        </section>
+
+        <section data-background-transition="slide">
+            <h3>Co robi ten kod?</h3>
+            <pre class="code">
+                <p style="font-size: small">
+                <span class="py">import</span> pandas <span class="py">as</span> pd
+                <span class="py">import</span> numpy <span class="py">as</span> np
+                <span class="py">import</span> os
+                <span class="py">import</span> shutil
+                <span class="py">import</span> random
+
+                <span class="py">def</span> <span class="method">copy_images</span>(n, cond1,cond2, file1, path1,path2):
+                df = pd.read_csv(file1)
+                df = df.set_index('image_id')
+
+                df_copy = df.copy()
+                    condition1 = df_copy['Male'] == (1 <span class="py">if</span> cond1 == <span
+                        class="bool">True</span> <span class="py">else</span> -1)
+                    condition2 = df_copy['Attractive'] == (1 <span class="py">if</span> cond2 == <span
+                        class="bool">True</span> <span class="py">else</span> -1)
+                df2 = df_copy[condition1 & condition2]
+                names = df2.index.tolist()
+                items = np.random.choice(names, n, replace=False)
+
+                <span class="py">if</span>(not os.path.exists(path2)):
+                    os.makedirs(path2, exist_ok=<span class="bool">True</span>)
+
+                <span class="py">for</span> item <span class="py">in</span> items:
+                    src = '{}/{}'.format(path1, item)
+                    dst = '{}/{}'.format(path2, item)
+                    shutil.copyfile(src, dst)
+
+                <i>copy_images(250, True, True, './data.csv', './photos','./dest')</i>
+                </p>
+            </pre>
+        </section>
+        <section data-background-transition="slide">
+            <pre class="code">
+                <p style="font-size: small">
+                <span class="py">import</span> pandas <span class="py">as</span> pd
+                <span class="py">import</span> numpy <span class="py">as</span> np
+                <span class="py">import</span> os
+                <span class="py">import</span> shutil
+                <span class="py">import</span> random
+
+                <span class="py">def</span> <span class="method">create_destination_folder_if_not_exist</span>(destination_path):
+                if(not os.path.exists(destination_pgiath)):
+                    os.makedirs(destination_path, exist_ok=<span class="bool">True</span>)
+
+
+                <span class="py">def</span> <span class="method">copy_images_to_folder</span>(image_list, images_path, destination_path):
+                create_destination_folder_if_not_exist(destination_path)
+                <span class="py">for</span> image <span class="py">in</span> image_list:
+                        image_src_path = '{}/{}'.format(images_path, image)
+                        image_dest_path = '{}/{}'.format(destination_path, image)
+                        shutil.copyfile(image_src_path, image_dest_path)
+
+                <span class="py">def</span> <span class="method">create_n_random_image_names_list</span>(n, images_df):
+                images_names = images_df.index.tolist()
+                return np.random.choice(images_names, n, replace=False)
+
+                <span class="py">def</span> <span class="method">copy_n_images_for_gender_and_attractiveness_values</span>(number_of_images, isMale,
+                        isAttractive,data_file_path, images_path, destination_path):
+                    celebs_df = pd.read_csv(data_file_path)
+                    celebs_df = celebs_df.set_index('image_id')
+
+                    celebs_df_copy = celebs_df.copy()
+                    gender_condition = celebs_df_copy['Male'] == (1 <span class="py">if</span> isMale == <span class="bool">True</span> <span class="py">else</span> -1)
+                    attractiveness_condition = celebs_df_copy['Attractive'] == (1<span class="py"> if</span> isAttractive == <span class="bool">True</span> <span class="py">else</span> -1)
+                    images_df = celebs_df_copy[gender_condition & attractiveness_condition]
+
+                    image_names = create_n_random_image_names_list(number_of_images, images_df)
+                    copy_images_to_folder(image_names,images_path,destination_path)
+
+                 <i>copy_n_images_for_gender_and_attractiveness_values(250, True, True, './data.csv', './photos','./dest')</i>
+                </p>
+            </pre>
+        </section>
+
     </div>
-    <script src="resources/presentation/js/head.min.js"></script>
-    <script src="resources/presentation/js/reveal.js"></script>
-    <script>
-        Reveal.initialize({
-            controls: true,
-            progress: true,
-            history: true,
-            center: true,
-            transition: 'concave'
-        });
+</div>
+<script src="resources/presentation/js/head.min.js"></script>
+<script src="resources/presentation/js/reveal.js"></script>
+<script src="resources/presentation/js/veal.js"></script>
+<script>
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'concave'
+    });
 
-    </script>
+</script>
 </body>
