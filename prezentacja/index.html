@@ -237,7 +237,29 @@
             <h3>L - <i>Liskov Substitution Principle</i></h3>
             <pre class="code">
                 <p style="font-size: small">
-                    //TODO
+                <span class="keyword">public class</span> Bird  <i class="fa fa-ban"
+                                                                   style="color: red"></i> {
+                    <span class="keyword">public void </span> <span class="method">fly</span>()
+                }
+
+                <span class="keyword">public class</span> Duck <span class="keyword">extends</span> Bird  {}
+                <span class="keyword">public class</span> Ostrich <span class="keyword">extends</span> Bird  {}
+
+                </p>
+            </pre>
+        </section>
+        <section data-background-transition="slide">
+            <pre class="code">
+                <p style="font-size: small">
+                <span class="keyword">public class</span> Bird <i class="fa fa-check"
+                                                                  style="color: green"></i>{}
+                <span class="keyword">public class</span> FlyingBird  {
+                    <span class="keyword">public void </span> <span class="method">fly</span>()
+                }
+
+                <span class="keyword">public class</span> Duck <span class="keyword">extends</span> FlyingBird  {}
+                <span class="keyword">public class</span> Ostrich <span class="keyword">extends</span> Bird  {}
+
                 </p>
             </pre>
         </section>
