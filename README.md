@@ -6,7 +6,7 @@
  - [X] Formatowanie
  - [ ] Zakomentowany/niewykorzystywany kod
  - [X] Logowanie/komentarze
- - [ ] Pakiety
+ - [X] Pakiety
  - [X] Nazewnictwo
  - [ ] Tworzenie funkcji
  - [X] Brak powtórzeń
