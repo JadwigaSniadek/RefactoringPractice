@@ -2,7 +2,7 @@
 
 ## Czysty kod
  - [X] SOLID
- - [ ] Stałe
+ - [X] Stałe
  - [X] Formatowanie
  - [ ] Zakomentowany/niewykorzystywany kod
  - [X] Logowanie/komentarze
