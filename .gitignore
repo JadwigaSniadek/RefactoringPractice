@@ -23,3 +23,7 @@
 hs_err_pid*
 .idea/
 *.iml
+
+# Exceptions
+!RefactoringPractice.iml
+!junit-4.9.jar
