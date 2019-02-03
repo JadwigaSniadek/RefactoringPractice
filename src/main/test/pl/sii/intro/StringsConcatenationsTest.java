@@ -1,4 +1,4 @@
-package pl.ing;
+package pl.sii.intro;
 
 
 import org.junit.Assert;
@@ -7,19 +7,19 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 
 @TestInstance(value = TestInstance.Lifecycle.PER_CLASS)
-public class CosiekTest {
+public class StringsConcatenationsTest {
 
-    private Cosiek cosiek;
+    private StringsConcatenations stringConcatenation;
 
     @BeforeAll
     public void setUp() {
-        cosiek = new Cosiek();
+        stringConcatenation = new StringsConcatenations();
     }
 
     @Test
     public void testStringConcatenation() {
         long startTime = System.nanoTime();
-        cosiek.stringConcatenation();
+        stringConcatenation.stringConcatenation();
         long endTime = System.nanoTime();
 
         long duration = (endTime - startTime);
