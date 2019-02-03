@@ -2,7 +2,7 @@ package pl.sii.tasks;
 
 public class Task1 {
 
-    public boolean testSomething(int a, int b, int c) {
+    public static boolean testSomething(int a, int b, int c) {
         boolean result;
         if(a<8) {
             if(b<8) {
