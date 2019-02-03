@@ -8,11 +8,12 @@
  - [X] Logowanie/komentarze
  - [X] Pakiety
  - [X] Nazewnictwo
- - [ ] Tworzenie funkcji
  - [X] Brak powtórzeń
- - [X] Operacje na stringach
  - [X] Jeden język projektu
- - [ ] Enumy
+ //te rzeczy poniżej mam w przykładach w kodzie więc jak nie chcesz to nie musisz robić :)
+ - [X] Operacje na stringach
+ - [X] Tworzenie funkcji
+ - [X] Enumy
 
  ## Debug
  - [X] z czym to się je ;)
