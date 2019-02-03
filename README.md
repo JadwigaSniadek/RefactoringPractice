@@ -10,7 +10,9 @@
  - [X] Nazewnictwo
  - [X] Brak powtórzeń
  - [X] Jeden język projektu
- //te rzeczy poniżej mam w przykładach w kodzie więc jak nie chcesz to nie musisz robić :)
+ - [X] Komentarze
+ 
+ Te rzeczy poniżej mam w przykładach w kodzie więc jak nie chcesz to nie musisz robić do nich slajdów :)
  - [X] Operacje na stringach
  - [X] Tworzenie funkcji
  - [X] Enumy
