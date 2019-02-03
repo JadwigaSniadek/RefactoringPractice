@@ -14,7 +14,7 @@ public class StringsConcatenations {
             hello = hello + " Testers";
         }
         long stopTime = System.currentTimeMillis();
-        System.out.println(String.format("Czas wykonania bez Buildera: %s", milisToTime(stopTime - startTime)));
+        System.out.println(String.format("Execution time is: %s", milisToTime(stopTime - startTime)));
     }
 
     public static void stringConcatenationBuilder() {
@@ -24,7 +24,7 @@ public class StringsConcatenations {
             hello.append(" Testers");
         }
         long stopTime = System.currentTimeMillis();
-        System.out.println(String.format("Czas wykonania z Builderem: %s", milisToTime(stopTime - startTime)));
+        System.out.println(String.format("Execution time is: %s", milisToTime(stopTime - startTime)));
     }
 
     public static void main(String[] args) {
