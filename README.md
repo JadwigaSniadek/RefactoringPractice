@@ -10,18 +10,18 @@
  - [X] Nazewnictwo
  - [ ] Tworzenie funkcji
  - [X] Brak powtórzeń
- - [ ] Operacje na stringach
+ - [X] Operacje na stringach
  - [X] Jeden język projektu
  - [ ] Enumy
 
  ## Debug
-  z czym to się je ;)
+ - [X] z czym to się je ;)
  ## IntelliJ/refractoring 
  kartkę ze skrótami dostali bardziej problemem jest to że nie wiedzą co można zrobić.
- - [ ]  rename
- - [ ] extract
- - [ ] kopiowanie wiersza
- - [ ]  poruszanie się po kodzie
+ - [X] rename
+ - [X] extract
+ - [X] pozostałe przydatne skróty klawiaturowe w IntelliJ (poruszanie się po kodzie, dokumentacja, parametry, reformat, 
+ organizacja importów)
   
  ## Przykłady z literatury
 
