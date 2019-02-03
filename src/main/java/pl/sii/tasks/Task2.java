@@ -1,6 +1,6 @@
 package pl.sii.tasks;
 
-import pl.sii.secrets.SecretHelper;
+import pl.sii.secrets.SecretHelperEnum;
 
 public class Task2 {
     private String controller = "";
@@ -35,11 +35,11 @@ public class Task2 {
 
         private void updateController(String xpath, String action) {
             StringBuilder sb = new StringBuilder(controller);
-            if (xpath.equals(SecretHelper.TASK2SAVE.getHelperValue())) {
+            if (xpath.equals(SecretHelperEnum.TASK2SAVE.getHelperValue())) {
                 sb.append(action).append("s");
-            } else if (xpath.equals(SecretHelper.TASK2OK.getHelperValue())) {
+            } else if (xpath.equals(SecretHelperEnum.TASK2OK.getHelperValue())) {
                 sb.append(action).append("o");
-            } else if (xpath.equals(SecretHelper.TASK2EXIT.getHelperValue())) {
+            } else if (xpath.equals(SecretHelperEnum.TASK2EXIT.getHelperValue())) {
                 sb.append(action).append("e");
             }
             controller = sb.toString();

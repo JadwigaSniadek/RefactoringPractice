@@ -1,6 +1,6 @@
 package pl.sii.secrets;
 
-public enum SecretHelper {
+public enum SecretHelperEnum {
     // no cheating please
     TASK2SAVE("//*[contains(text(), 'Save')]/../following-sibling::td/label[contains(text(), '>=')]/../..//input"),
     TASK2OK("//*[contains(text(), 'Ok')]/../following-sibling::td/label[contains(text(), '>=')]/../..//input"),
@@ -9,7 +9,7 @@ public enum SecretHelper {
 
     private String helperValue;
 
-    SecretHelper(String helperValue) {
+    SecretHelperEnum(String helperValue) {
         this.helperValue = helperValue;
     }
 
