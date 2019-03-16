@@ -1,35 +1,36 @@
 package pl.sii.tasks;
 
 import pl.sii.secrets.SecretHelperEnum;
+import pl.sii.tasks.enums.ButtonNamesEnum;
 
 public class Task2 {
     private String controller = "";
 
+    private final static String XPATH = "//*[contains(text(), '%s')]/../following-sibling::td/label[contains(text(), '%s')]/../..//input";
+    //%s - string
+    //%d - digit
+    private Helper helper = new Helper();
+
     public void saveCase() {
-        Helper helper = new Helper();
-        String command = "Save";
-        Helper.Button button = helper.findButton("//*[contains(text(), '" + command + "')]/../following-sibling::td/label[contains(text(), '>=')]/../..//input");
-        helper.clickButton(button);
-        command = "Ok";
-        String okButton = "//*[contains(text(), '" + command + "')]/../following-sibling::td/label[contains(text(), '>=')]/../..//input";
-        Helper helper2 = new Helper();
-        Helper.Button button2 = helper2.findButton(okButton);
-        helper2.clickButton(button2);
-        String exitButton = "//*[contains(text(), 'Exit')]/../following-sibling::td/label[contains(text(), 'X')]/../..//input";
-        Helper.Button button3 = helper2.findButton(exitButton);
-        helper2.clickButton(button3);
+        findAndClickButton(String.format(XPATH, ButtonNamesEnum.SAVE, ">="));
+        findAndClickButton(String.format(XPATH, ButtonNamesEnum.OK, ">="));
+        findAndClickButton(String.format(XPATH, ButtonNamesEnum.EXIT, "X"));
     }
 
+    private void findAndClickButton(final String xpath) {
+        Helper.Button button = helper.findButton(xpath);
+        helper.clickButton(button);
+    }
 
     private class Helper {
 
         public Button findButton(String xpath) {
-            updateController(xpath,"f");
+            updateController(xpath, "f");
             return new Button(xpath);
         }
 
         public void clickButton(Button button) {
-            updateController(button.xpath,"c");
+            updateController(button.xpath, "c");
             button.click();
         }
 
@@ -52,7 +53,8 @@ public class Task2 {
                 this.xpath = xpath;
             }
 
-            private void click() {}
+            private void click() {
+            }
         }
     }
 
