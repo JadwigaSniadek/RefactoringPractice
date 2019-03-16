@@ -15,14 +15,14 @@ public class Task3Test {
     @Parameterized.Parameters
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][]{
-                {LocalDate.of(YEAR, Month.MARCH, DAY), 1, 100},
-                {LocalDate.of(YEAR, Month.APRIL, DAY), 1, 120},
-                {LocalDate.of(YEAR, Month.MARCH, DAY), 5, 90},
-                {LocalDate.of(YEAR, Month.APRIL, DAY), 5, 108},
-                {LocalDate.of(YEAR, Month.MARCH, DAY), 4, 100},
-                {LocalDate.of(YEAR, Month.APRIL, DAY), 4, 120},
-                {LocalDate.of(YEAR, Month.OCTOBER, DAY), 5, 90},
-                {LocalDate.of(YEAR, Month.SEPTEMBER, DAY), 5, 108}
+                {LocalDate.of(YEAR, Month.MARCH, DAY), 1, 1*100},
+                {LocalDate.of(YEAR, Month.APRIL, DAY), 1, 1*120},
+                {LocalDate.of(YEAR, Month.MARCH, DAY), 5, 5*90},
+                {LocalDate.of(YEAR, Month.APRIL, DAY), 5, 5*108},
+                {LocalDate.of(YEAR, Month.MARCH, DAY), 4, 4*100},
+                {LocalDate.of(YEAR, Month.APRIL, DAY), 4, 4*120},
+                {LocalDate.of(YEAR, Month.OCTOBER, DAY), 5, 5*90},
+                {LocalDate.of(YEAR, Month.SEPTEMBER, DAY), 5, 5*108}
         });
     }
 
