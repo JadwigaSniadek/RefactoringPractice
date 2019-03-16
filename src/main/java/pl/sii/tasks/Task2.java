@@ -2,6 +2,10 @@ package pl.sii.tasks;
 
 import pl.sii.secrets.SecretHelperEnum;
 
+import static pl.sii.tasks.enums.ButtonNamesEnum.EXIT;
+import static pl.sii.tasks.enums.ButtonNamesEnum.OK;
+import static pl.sii.tasks.enums.ButtonNamesEnum.SAVE;
+
 public class Task2 {
     private String controller = "";
 
@@ -9,9 +13,9 @@ public class Task2 {
     private Helper helper = new Helper();
 
     public void saveCase() {
-        findAndClickButton(String.format(XPATH, "Save", ">="));
-        findAndClickButton(String.format(XPATH, "OK", ">="));
-        findAndClickButton(String.format(XPATH, "Exit", "X"));
+        findAndClickButton(String.format(XPATH, SAVE, ">="));
+        findAndClickButton(String.format(XPATH, OK, ">="));
+        findAndClickButton(String.format(XPATH, EXIT, "X"));
     }
 
     private void findAndClickButton(final String xpath) {
@@ -26,12 +30,12 @@ public class Task2 {
     private class Helper {
 
         public Button findButton(String xpath) {
-            updateController(xpath,"f");
+            updateController(xpath, "f");
             return new Button(xpath);
         }
 
         public void clickButton(Button button) {
-            updateController(button.xpath,"c");
+            updateController(button.xpath, "c");
             button.click();
         }
 
@@ -54,7 +58,8 @@ public class Task2 {
                 this.xpath = xpath;
             }
 
-            private void click() {}
+            private void click() {
+            }
         }
     }
 

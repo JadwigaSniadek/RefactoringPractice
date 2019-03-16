@@ -5,7 +5,7 @@ public enum ButtonNamesEnum {
     SAVE("Save"),
     EXIT("Exit"),
     CANCEL("Cancel"),
-    OK("OK");
+    OK("Ok");
 
     private String buttonName;
 
@@ -24,5 +24,10 @@ public enum ButtonNamesEnum {
             }
         }
         return null;
+    }
+
+    @Override
+    public String toString() {
+        return getButtonName();
     }
 }
