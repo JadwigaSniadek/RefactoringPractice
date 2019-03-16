@@ -2,19 +2,22 @@ package pl.sii.tasks;
 
 public class Task4 {
 
-    private static final String prefix = "its prefix for our test cases";
+    private static final String PREFIX = "its prefix for our test cases case";
 
-    private static final String case1 = prefix + "case1";
-    private static final String case2 = prefix + "case2";
-    private static final String case3 = prefix + "case3";
+    private static final String case1 = PREFIX + "case%1";
 
     public static void testCases() {
-        checkSomething(case1);
-        checkSomething(case2);
-        checkSomething(case3);
+
+        for (int i = 1; i < 4; i++) {
+            checkSomething(PREFIX + i);
+        }
     }
 
     private static void checkSomething(final String caseString) {
         System.out.println(caseString + " checked!");
+    }
+
+    public static void main(String[] args) {
+        testCases();
     }
 }
