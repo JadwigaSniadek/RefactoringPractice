@@ -2,34 +2,38 @@ package pl.sii.tasks;
 
 import pl.sii.secrets.SecretHelperEnum;
 
+import static pl.sii.tasks.enums.ButtonNamesEnum.EXIT;
+import static pl.sii.tasks.enums.ButtonNamesEnum.OK;
+import static pl.sii.tasks.enums.ButtonNamesEnum.SAVE;
+
 public class Task2 {
+    private static final String XPATH = "//*[contains(text(), '%s')]/../following-sibling::td/label[contains(text(), '%s')]/../..//input";
+    //private static final String EXIT_PATH = "//*[contains(text(), 'Exit')]/../following-sibling::td/label[contains(text(), 'X')]/../..//input";
     private String controller = "";
+    private Helper helper;
 
     public void saveCase() {
-        Helper helper = new Helper();
-        String command = "Save";
-        Helper.Button button = helper.findButton("//*[contains(text(), '" + command + "')]/../following-sibling::td/label[contains(text(), '>=')]/../..//input");
+        helper = new Helper();
+        findAndClickButton(String.format(XPATH, SAVE, ">="));
+        findAndClickButton(String.format(XPATH, OK, ">="));
+        findAndClickButton(String.format(XPATH, EXIT, "X"));
+    }
+
+    private void findAndClickButton(String xpath) {
+        Helper.Button button = helper.findButton(xpath);
         helper.clickButton(button);
-        command = "Ok";
-        String okButton = "//*[contains(text(), '" + command + "')]/../following-sibling::td/label[contains(text(), '>=')]/../..//input";
-        Helper helper2 = new Helper();
-        Helper.Button button2 = helper2.findButton(okButton);
-        helper2.clickButton(button2);
-        String exitButton = "//*[contains(text(), 'Exit')]/../following-sibling::td/label[contains(text(), 'X')]/../..//input";
-        Helper.Button button3 = helper2.findButton(exitButton);
-        helper2.clickButton(button3);
     }
 
 
     private class Helper {
 
         public Button findButton(String xpath) {
-            updateController(xpath,"f");
+            updateController(xpath, "f");
             return new Button(xpath);
         }
 
         public void clickButton(Button button) {
-            updateController(button.xpath,"c");
+            updateController(button.xpath, "c");
             button.click();
         }
 
@@ -52,7 +56,8 @@ public class Task2 {
                 this.xpath = xpath;
             }
 
-            private void click() {}
+            private void click() {
+            }
         }
     }
 
