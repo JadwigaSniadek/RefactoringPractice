@@ -24,5 +24,4 @@ hs_err_pid*
 *.iml
 
 # Exceptions
-!RefactoringPractice.iml
 !junit-4.9.jar
