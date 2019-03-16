@@ -1,6 +1,7 @@
 package pl.sii.tasks;
 
 import pl.sii.secrets.SecretHelperEnum;
+import pl.sii.tasks.enums.ButtonNamesEnum;
 
 public class Task2 {
     private String controller = "";
@@ -18,6 +19,28 @@ public class Task2 {
         String exitButton = "//*[contains(text(), 'Exit')]/../following-sibling::td/label[contains(text(), 'X')]/../..//input";
         Helper.Button button3 = helper2.findButton(exitButton);
         helper2.clickButton(button3);
+    }
+
+    private final static String XPATH = "//*[contains(text(), '%s')]/../following-sibling::td/label[contains(text(), '%s')]/../..//input";
+    //%s - string
+    //%d - digit
+    private Helper helper = new Helper();
+
+    public void saveCase2() {
+        findAndClickButton(String.format(XPATH, ButtonNamesEnum.SAVE, ">="));
+        findAndClickButton(String.format(XPATH, ButtonNamesEnum.OK, ">="));
+        findAndClickButton(String.format(XPATH, ButtonNamesEnum.EXIT, "X"));
+    }
+
+    private void findAndClickButton(final String xpath) {
+        Helper.Button button = helper.findButton(xpath);
+        helper.clickButton(button);
+    }
+
+    //to samo co powyżej
+
+    private String buildXpath(String command, String tag) {
+    return "//*[contains(text(), '\" + command + \"')]/../following-sibling::td/label[contains(text(), '>=')]/../..//input";
     }
 
 
