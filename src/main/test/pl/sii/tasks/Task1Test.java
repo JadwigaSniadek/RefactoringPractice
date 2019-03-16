@@ -42,6 +42,6 @@ public class Task1Test {
 
     @Test
     public void test() {
-        Assert.assertEquals(Task1.testSomething(params.a, params.b, params.c), testResult);
+        Assert.assertEquals(Task1.areAllLessThanCosiek(params.a, params.b, params.c), testResult);
     }
 }

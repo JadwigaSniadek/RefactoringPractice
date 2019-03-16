@@ -5,21 +5,23 @@ import pl.sii.secrets.SecretHelperEnum;
 public class Task2 {
     private String controller = "";
 
+    private static final String XPATH = "//*[contains(text(), '%s')]/../following-sibling::td/label[contains(text(), '%s')]/../..//input";
+    private Helper helper = new Helper();
+
     public void saveCase() {
-        Helper helper = new Helper();
-        String command = "Save";
-        Helper.Button button = helper.findButton("//*[contains(text(), '" + command + "')]/../following-sibling::td/label[contains(text(), '>=')]/../..//input");
-        helper.clickButton(button);
-        command = "Ok";
-        String okButton = "//*[contains(text(), '" + command + "')]/../following-sibling::td/label[contains(text(), '>=')]/../..//input";
-        Helper helper2 = new Helper();
-        Helper.Button button2 = helper2.findButton(okButton);
-        helper2.clickButton(button2);
-        String exitButton = "//*[contains(text(), 'Exit')]/../following-sibling::td/label[contains(text(), 'X')]/../..//input";
-        Helper.Button button3 = helper2.findButton(exitButton);
-        helper2.clickButton(button3);
+        findAndClickButton(String.format(XPATH, "Save", ">="));
+        findAndClickButton(String.format(XPATH, "OK", ">="));
+        findAndClickButton(String.format(XPATH, "Exit", "X"));
     }
 
+    private void findAndClickButton(final String xpath) {
+        Helper.Button button = helper.findButton(xpath);
+        helper.clickButton(button);
+    }
+
+    private String buildXpath(String command, String tag) {
+        return "//*[contains(text(), '" + command + "')]/../following-sibling::td/label[contains(text(), '" + tag + "')]/../..//input";
+    }
 
     private class Helper {
 
