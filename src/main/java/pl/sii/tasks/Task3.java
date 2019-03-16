@@ -5,29 +5,34 @@ import java.time.Month;
 
 public class Task3 {
 
-    private static int summerPrice = 120;
-    private static int winterPrice = 100;
-    private static double groupDiscount = 0.1;
+    private static final double SUMMER_PRICE = 120;
+    private static final double WINTER_PRICE = 100;
+    private static final double GROUP_DISCOUNT = 0.1;
+    private static final Month START_SUMMER_MONTH = Month.MARCH;
+    private static final Month END_SUMMER_MONTH = Month.OCTOBER;
+    private static final int MINIMAL_GROUP_SIZE = 5;
 
     public static double calculateTicketPrice(LocalDate date, int quantity) {
-        double price = 0;
-        if (date.getMonth().compareTo(Month.MARCH) > 0) {
-            if (date.getMonth().compareTo(Month.OCTOBER) < 0) {
-                price = (double) summerPrice;
-            }
-        }
-        if (date.getMonth().compareTo(Month.APRIL) < 0) {
-            price = (double) winterPrice;
-        }
+        double price = getSeasonalPrice(date);
+        return applyDiscount(quantity, price);
+    }
 
-        if (date.getMonth().compareTo(Month.SEPTEMBER) > 0) {
-            price = (double) winterPrice;
+    private static double getSeasonalPrice(final LocalDate date) {
+        if (isSummerPrice(date)) {
+            return SUMMER_PRICE;
+        } else {
+            return WINTER_PRICE;
         }
+    }
 
-        if (quantity > 4) {
-            price = price - price * groupDiscount;
+    private static boolean isSummerPrice(final LocalDate date) {
+        return date.getMonth().compareTo(START_SUMMER_MONTH) > 0 && date.getMonth().compareTo(END_SUMMER_MONTH) < 0;
+    }
+
+    private static double applyDiscount(final int quantity, double price) {
+        if (quantity >= MINIMAL_GROUP_SIZE) {
+            price = price - price * GROUP_DISCOUNT;
         }
-
-        return price;
+        return quantity * price;
     }
 }
